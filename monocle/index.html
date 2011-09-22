@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <head>
-<title>Dummy</title>
+<title>Kafka Demo</title>
 
 <!-- MONOCLE CORE -->
-<script type="text/javascript" src="js/monocle/src/core/monocle.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/compat.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/factory.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/events.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/styles.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/reader.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/book.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/component.js"></script>
-<script type="text/javascript" src="js/monocle/src/core/place.js"></script>
-<script type="text/javascript" src="js/monocle/src/dimensions/columns.js"></script>
+<script type="text/javascript" src="js/core/monocle.js"></script>
+<script type="text/javascript" src="js/core/compat.js"></script>
+<script type="text/javascript" src="js/core/factory.js"></script>
+<script type="text/javascript" src="js/core/events.js"></script>
+<script type="text/javascript" src="js/core/styles.js"></script>
+<script type="text/javascript" src="js/core/reader.js"></script>
+<script type="text/javascript" src="js/core/book.js"></script>
+<script type="text/javascript" src="js/core/component.js"></script>
+<script type="text/javascript" src="js/core/place.js"></script>
+<script type="text/javascript" src="js/dimensions/columns.js"></script>
 
 <!-- MONOCLE FLIPPERS -->
-<script type="text/javascript" src="js/monocle/src/controls/panel.js"></script>
-<script type="text/javascript" src="js/monocle/src/panels/twopane.js"></script>
-<script type="text/javascript" src="js/monocle/src/dimensions/columns.js"></script>
-<script type="text/javascript" src="js/monocle/src/flippers/slider.js"></script>
+<script type="text/javascript" src="js/controls/panel.js"></script>
+<script type="text/javascript" src="js/panels/twopane.js"></script>
+<script type="text/javascript" src="js/dimensions/columns.js"></script>
+<script type="text/javascript" src="js/flippers/slider.js"></script>
 
-<link rel="stylesheet" type="text/css" href="js/monocle/styles/monocore.css" />
-<link rel="stylesheet" type="text/css" href="js/monocle/styles/monoctrl.css" />
+<link rel="stylesheet" type="text/css" href="styles/monocore.css" />
+<link rel="stylesheet" type="text/css" href="styles/monoctrl.css" />
 
 <script type="text/javascript">
 
 	var bookData = {
 		getComponents: function () {
 			return [
-				'kafka.html',
 				'kafka.html'
 				];
 		},
 		getContents: function () {
 			return [
-				{title: "Content Title 1", src: 'kafka.html'},
-				{title: "Content Title 2", src: 'kafka.html'}
+				{title: "Content Title 1", src: 'kafka.html'}
 				]
 		},
 		getComponent: function (componentId) {
