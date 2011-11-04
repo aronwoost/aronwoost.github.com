@@ -26,6 +26,7 @@ Monocle.Events.dispatch = function (elem, evtType, data, cancelable) {
 // Register a function to be invoked when an event fires.
 //
 Monocle.Events.listen = function (elem, evtType, fn, useCapture) {
+  if (typeof elem == "string") { elem = document.getElementById(elem); }
   return elem.addEventListener(evtType, fn, useCapture || false);
 }
 
@@ -274,6 +275,27 @@ Monocle.Events.listenForTap = function (elem, fn, activeClass) {
 
 
 Monocle.Events.deafenForTap = Monocle.Events.deafenForContact;
+
+
+// Listen for the next transition-end event on the given element, call
+// the function, then deafen.
+//
+// Returns a function that can be used to cancel the listen early.
+//
+Monocle.Events.afterTransition = function (elem, fn) {
+  var evtName = "transitionend";
+  if (Monocle.Browser.is.WebKit) {
+    evtName = 'webkitTransitionEnd';
+  } else if (Monocle.Browser.is.Opera) {
+    evtName =  'oTransitionEnd';
+  }
+  var l = null, cancel = null;
+  l = function () { fn(); cancel(); }
+  cancel = function () { Monocle.Events.deafen(elem, evtName, l); }
+  Monocle.Events.listen(elem, evtName, l);
+  return cancel;
+}
+
 
 
 // BROWSERHACK: iOS touch events on iframes are busted. The TouchMonitor,
