@@ -20,8 +20,10 @@
 
 			XPathJS.bindDomLevel3XPath();
 
+			var resolver = document.createNSResolver(document.documentElement);
+
 			var xpath = "/html/body";
-			var result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+			var result = document.evaluate(xpath, document, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 			console.log("result.length: "+result.snapshotLength);
 
 		});	
